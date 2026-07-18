@@ -1,0 +1,94 @@
+<!doctype html><html lang=ja><head><meta charset=utf-8><meta name=viewport content='width=device-width, initial-scale=1'><title>Boost X投稿カレンダー</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #f4f4f6;
+    --surface: #ffffff;
+    --surface-alt: #eceef2;
+    --text: #16171a;
+    --text-secondary: #45474d;
+    --border: #d4d6db;
+    --accent: #1552c4;
+    --accent-text: #ffffff;
+    --btn-secondary-bg: #e7e8ec;
+    --btn-secondary-text: #16171a;
+    --badge-pending-bg: #fff0c2;
+    --badge-pending-text: #5c3d00;
+    --badge-approved-bg: #d3f3dd;
+    --badge-approved-text: #0f4a26;
+    --badge-posted-bg: #dbe8ff;
+    --badge-posted-text: #0d2f7a;
+    --badge-other-bg: #e2e4ea;
+    --badge-other-text: #33353a;
+    --link: #1552c4;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #131315;
+      --surface: #1e1f22;
+      --surface-alt: #292a2f;
+      --text: #f3f3f5;
+      --text-secondary: #c3c5cb;
+      --border: #3c3d42;
+      --accent: #6ea1ff;
+      --accent-text: #0a1526;
+      --btn-secondary-bg: #33343a;
+      --btn-secondary-text: #f3f3f5;
+      --badge-pending-bg: #4a3900;
+      --badge-pending-text: #ffd76b;
+      --badge-approved-bg: #113a22;
+      --badge-approved-text: #7fe3a4;
+      --badge-posted-bg: #16305c;
+      --badge-posted-text: #9dc2ff;
+      --badge-other-bg: #2c2d32;
+      --badge-other-text: #d6d7dc;
+      --link: #8ab4ff;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif;
+    margin: 0; padding: 16px; background: var(--bg); color: var(--text); line-height: 1.5;
+  }
+  h1 { font-size: 1.25rem; margin: 0 0 6px; color: var(--text); }
+  .sub { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 14px; }
+  .toolbar { margin-bottom: 16px; }
+  .toolbar button {
+    font-size: 1rem; padding: 10px 18px; border-radius: 8px; border: none;
+    background: var(--accent); color: var(--accent-text); min-height: 44px; font-weight: 600;
+  }
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; min-width: 720px; }
+  th, td { border-bottom: 1px solid var(--border); padding: 12px; text-align: left; vertical-align: top; }
+  th {
+    background: var(--surface-alt); color: var(--text); position: sticky; top: 0;
+    white-space: nowrap; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.02em;
+  }
+  td { color: var(--text); font-size: 0.9rem; }
+  td.meta { color: var(--text-secondary); font-size: 0.85rem; white-space: nowrap; }
+  td.text-cell {
+    max-width: 380px; min-width: 220px; white-space: pre-wrap; word-break: break-word;
+    font-size: 1rem; line-height: 1.6; color: var(--text);
+  }
+  .badge {
+    display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 0.78rem;
+    font-weight: 700; white-space: nowrap;
+  }
+  .badge-pending { background: var(--badge-pending-bg); color: var(--badge-pending-text); }
+  .badge-approved { background: var(--badge-approved-bg); color: var(--badge-approved-text); }
+  .badge-posted { background: var(--badge-posted-bg); color: var(--badge-posted-text); }
+  .badge-other { background: var(--badge-other-bg); color: var(--badge-other-text); }
+  .actions form { display: inline; margin-right: 6px; }
+  .actions button {
+    font-size: 0.9rem; padding: 8px 14px; border-radius: 8px; border: 1px solid var(--border);
+    min-height: 40px; font-weight: 600;
+  }
+  .btn-approve { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+  .btn-reject { background: var(--btn-secondary-bg); color: var(--btn-secondary-text); }
+  .weighted { font-variant-numeric: tabular-nums; font-size: 0.82rem; color: var(--text-secondary); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+  .empty { padding: 28px; text-align: center; color: var(--text-secondary); }
+  a.tweet-link { color: var(--link); font-weight: 600; text-decoration: underline; }
+  footer.page-footer { margin-top: 18px; font-size: 0.8rem; color: var(--text-secondary); }
+</style>
+</head><body><h1>Boost X投稿カレンダー</h1><div class='sub'>英語学習アプリBoostの「今日の英単語クイズ」(朝)と「今日の英作文」(夜)の投稿予定・投稿履歴です。閲覧専用ページです。</div><h2 style='font-size:1.05rem;margin:20px 0 8px'>投稿予定</h2><div class='card empty'>現在、投稿予定はありません。</div><h2 style='font-size:1.05rem;margin:24px 0 8px'>投稿済み(最新順、最大30件)</h2><div class='card empty'>まだ投稿済みの記録がありません。</div><footer class='page-footer'>最終更新: 2026-07-18 09:58 JST — <a class='tweet-link' href='https://github.com/yama9haru-bit/boost-x-view' rel='noopener'>このページについて</a></footer></body></html>
